@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sample.AzureFunctions.DotNet5.Extensions;
+using Serilog;
+using Serilog.Events;
 
 namespace Sample.AzureFunctions.DotNet5
 {
@@ -23,7 +25,14 @@ namespace Sample.AzureFunctions.DotNet5
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddLogging();
+                    Log.Logger = new LoggerConfiguration()
+                        .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                        .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information)
+                        .Enrich.WithProperty("Application", "Sample.AzureFunctions.DotNet31")
+                        .Enrich.FromLogContext()
+                        .CreateLogger();
+
+                    services.AddLogging(lb => lb.AddSerilog(Log.Logger, true));
                 })
                 .Build();
 
