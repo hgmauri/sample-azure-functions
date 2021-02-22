@@ -12,7 +12,7 @@ namespace Sample.AzureFunctions.DotNet5.Functions
         {
             var log = executionContext.Logger;
 
-            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            log.LogInformation($"C# Timer trigger function executed at: {timerInfo?.ScheduleStatus?.Next}, next: {timerInfo?.ScheduleStatus?.Last}");
         }
         public class MyInfo
         {
