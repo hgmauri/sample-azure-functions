@@ -7,9 +7,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Sample.AzureFunctions.DotNet5.Functions
 {
-    public class FunctionHttpTrigger
+    public class FunctionHttp
     {
-        [FunctionName(nameof(FunctionHttpTrigger))]
+        [FunctionName(nameof(FunctionHttp))]
         public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequestData req,
             FunctionExecutionContext executionContext)
         {

@@ -27,7 +27,6 @@ namespace Sample.AzureFunctions.DotNet5
                 {
                     Log.Logger = new LoggerConfiguration()
                         .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                        .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information)
                         .Enrich.WithProperty("Application", "Sample.AzureFunctions.DotNet31")
                         .Enrich.FromLogContext()
                         .CreateLogger();

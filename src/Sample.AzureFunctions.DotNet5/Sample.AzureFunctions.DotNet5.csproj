@@ -10,6 +10,7 @@
 		<Exec Command="rm -rf $(OutDir)bin/runtimes/* &amp;&amp; mkdir -p $(OutDir)bin/runtimes &amp;&amp; cp -R $(OutDir)runtimes/* $(OutDir)bin/runtimes/" />
 	</Target>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ" Version="1.0.0-beta" />
 		<PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Http" Version="3.0.12" />
 		<PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="4.0.4" />
 		<PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.2.1" />

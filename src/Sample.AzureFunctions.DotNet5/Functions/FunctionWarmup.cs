@@ -4,9 +4,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Sample.AzureFunctions.DotNet5.Functions
 {
-    public static class FunctionWarmupTrigger
+    public static class FunctionWarmup
     {
-        [FunctionName(nameof(FunctionWarmupTrigger))]
+        [FunctionName(nameof(FunctionWarmup))]
         public static void Run([WarmupTrigger] FunctionExecutionContext context)
         {
             var logger = context.Logger;

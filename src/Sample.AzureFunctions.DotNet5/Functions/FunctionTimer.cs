@@ -5,14 +5,14 @@ using Microsoft.Extensions.Logging;
 
 namespace Sample.AzureFunctions.DotNet5.Functions
 {
-    public static class FunctionTimerTrigger
+    public static class FunctionTimer
     {
-        [FunctionName(nameof(FunctionTimerTrigger))]
-        public static void Run([TimerTrigger("0 */1 * * * *")] MyInfo timerInfo, FunctionExecutionContext executionContext)
+        [FunctionName(nameof(FunctionTimer))]
+        public static void Run([TimerTrigger("*/5 * * * * *")] MyInfo timerInfo, FunctionExecutionContext executionContext)
         {
             var log = executionContext.Logger;
 
-            log.LogInformation($"C# Timer trigger function executed at: {timerInfo?.ScheduleStatus?.Next}, next: {timerInfo?.ScheduleStatus?.Last}");
+            log.LogInformation($"C# Timer trigger function executed");
         }
         public class MyInfo
         {

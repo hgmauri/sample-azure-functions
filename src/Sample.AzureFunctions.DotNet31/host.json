@@ -1,10 +1,19 @@
 {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-          "samplingSettings": {
-                "isEnabled": true
-            }
-        }
-    }
+  "version": "2.0",
+  "queues": {
+    "maxPollingInterval": 2000,
+    "visibilityTimeout": "00:00:30",
+    "batchSize": 1,
+    "maxDequeueCount": 3,
+    "newBatchThreshold": 8
+  },
+  "serviceBus": {
+    "maxConcurrentCalls": 1,
+    "prefetchCount": 100,
+    "autoRenewTimeout": "00:05:00"
+  },
+  "http": {
+    "maxConcurrentRequests": 10,
+    "routePrefix": "test"
+  }
 }
