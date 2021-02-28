@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Sample.AzureFunctions.DotNet5.Functions
 {
+    //Premium plan
     public static class FunctionWarmup
     {
         [FunctionName(nameof(FunctionWarmup))]
