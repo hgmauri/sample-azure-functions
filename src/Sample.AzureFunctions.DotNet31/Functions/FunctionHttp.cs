@@ -15,7 +15,6 @@ namespace Sample.AzureFunctions.DotNet31.Functions
             string id,
             ILogger log)
         {
-
             log.LogInformation($"Function HttpTrigger contract [{id}]");
         }
     }

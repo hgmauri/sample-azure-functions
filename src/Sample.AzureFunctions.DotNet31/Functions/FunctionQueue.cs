@@ -7,7 +7,7 @@ namespace Sample.AzureFunctions.DotNet31.Functions
     public static class FunctionQueue
     {
         [FunctionName(nameof(FunctionQueue))]
-        public static void Run([QueueTrigger("AzureWebJobsStorage")] Book myQueueItem, ILogger log)
+        public static void Run([QueueTrigger("queue-test", Connection = "AzureWebJobsStorage")] Book myQueueItem, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
