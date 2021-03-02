@@ -1,10 +1,12 @@
 ﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Sample.AzureFunctions.DotNet31;
 using Serilog;
 using Serilog.Events;
 using Serilog.Extensions.Logging;
 
+[assembly: FunctionsStartup(typeof(Startup))]
 namespace Sample.AzureFunctions.DotNet31
 {
     public class Startup : FunctionsStartup
@@ -13,7 +15,6 @@ namespace Sample.AzureFunctions.DotNet31
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information)
                 .Enrich.WithProperty("Application", "Sample.AzureFunctions.DotNet31")
                 .Enrich.FromLogContext()
                 .CreateLogger();
