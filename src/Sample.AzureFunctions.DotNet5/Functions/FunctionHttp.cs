@@ -1,6 +1,6 @@
 using System.Net;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Pipeline;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
@@ -11,13 +11,13 @@ namespace Sample.AzureFunctions.DotNet5.Functions
     {
         [FunctionName(nameof(FunctionHttp))]
         public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequestData req,
-            FunctionExecutionContext executionContext)
+            FunctionContext executionContext)
         {
-            var log = executionContext.Logger;
+            var log = executionContext.GetLogger(nameof(FunctionHttp));
 
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            var response = new HttpResponseData(HttpStatusCode.OK, "OK");
+            var response = req.CreateResponse(HttpStatusCode.OK);
 
             return response;
         }

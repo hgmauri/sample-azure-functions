@@ -1,5 +1,5 @@
 using System;
-using Microsoft.Azure.Functions.Worker.Pipeline;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 
@@ -8,9 +8,9 @@ namespace Sample.AzureFunctions.DotNet5.Functions
     public static class FunctionTimer
     {
         [FunctionName(nameof(FunctionTimer))]
-        public static void Run([TimerTrigger("*/5 * * * * *")] MyInfo timerInfo, FunctionExecutionContext executionContext)
+        public static void Run([TimerTrigger("*/5 * * * * *")] MyInfo timerInfo, FunctionContext context)
         {
-            var log = executionContext.Logger;
+            var log = context.GetLogger(nameof(FunctionTimer));
 
             log.LogInformation($"C# Timer trigger function executed");
         }

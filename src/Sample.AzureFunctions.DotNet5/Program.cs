@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.Azure.Functions.Worker.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,10 +17,9 @@ namespace Sample.AzureFunctions.DotNet5
                 {
                     configurationBuilder.AddCommandLine(args);
                 })
-                .ConfigureFunctionsWorker((hostBuilderContext, workerApplicationBuilder) =>
+                .ConfigureFunctionsWorkerDefaults(p =>
                 {
-                    workerApplicationBuilder.UseSampleMiddleware();
-                    workerApplicationBuilder.UseFunctionExecutionMiddleware();
+                    p.Services.UseSampleMiddleware();
                 })
                 .ConfigureServices(services =>
                 {

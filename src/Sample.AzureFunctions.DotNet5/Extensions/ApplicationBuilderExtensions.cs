@@ -1,23 +1,12 @@
-﻿using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Sample.AzureFunctions.DotNet5.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IFunctionsWorkerApplicationBuilder UseSampleMiddleware(this IFunctionsWorkerApplicationBuilder builder)
+        public static IServiceCollection UseSampleMiddleware(this IServiceCollection builder)
         {
-            builder.Services.AddSingleton<SampleMiddleware>();
-
-            builder.Use(next =>
-            {
-                return context =>
-                {
-                    var middleware = context.InstanceServices.GetRequiredService<SampleMiddleware>();
-
-                    return middleware.Invoke(context, next);
-                };
-            });
+            //DI
 
             return builder;
         }

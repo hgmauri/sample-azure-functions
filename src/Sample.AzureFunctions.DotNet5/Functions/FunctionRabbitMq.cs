@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Pipeline;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 
@@ -11,9 +10,9 @@ namespace Sample.AzureFunctions.DotNet5.Functions
         [FunctionName(nameof(FunctionRabbitMq))]
         [RabbitMQOutput(QueueName = "destinationQueue", ConnectionStringSetting = "RabbitmqConnection")]
         public static string Run([RabbitMQTrigger("queue", ConnectionStringSetting = "RabbitmqConnection")] string item,
-            FunctionExecutionContext context)
+            FunctionContext context)
         {
-            var logger = context.Logger;
+            var logger = context.GetLogger(nameof(FunctionRabbitMq));
 
             logger.LogInformation(item);
 
