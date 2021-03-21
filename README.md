@@ -1,6 +1,8 @@
 # sample-azure-functions
 
-Visual Studio and Visual Studio for Mac have **not yet** been updated to run .NET 5 Azure Functions. If you try to run this code using Visual Studio, it will throw a System.UriFormatException: _"Invalid URI: The hostname could not be parsed."_
+Visual Studio and Visual Studio for Mac have **not yet** been updated to run .NET 5 Azure Functions. 
+
+If you try to run this code using Visual Studio, it will throw a System.UriFormatException: _"Invalid URI: The hostname could not be parsed."_
 
 Install [Azure Functions Core Tools >= v3.0.3160](https://github.com/Azure/azure-functions-core-tools/releases)
 
