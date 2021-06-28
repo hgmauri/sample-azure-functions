@@ -1,4 +1,4 @@
-# Azure Functions in .NET 5 and .NET Core 3.1
+# sample-azure-functions
 
 - Newtonsoft.Json
 - Serilog
