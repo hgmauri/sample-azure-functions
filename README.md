@@ -1,4 +1,4 @@
-# sample-azure-functions
+# Example of using Azure Functions with .NET 5
 
 - Newtonsoft.Json
 - Serilog
